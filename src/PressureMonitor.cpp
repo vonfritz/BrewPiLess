@@ -22,15 +22,17 @@ int PressureMonitorClass::currentAdcReading(){
 }
 
 void PressureMonitorClass::_readPressure(){
-    float reading=0;
+    float reading;
+    float rsum=0;
     float max=0;
     float min=1024;
     for(int i=0;i<MULTIPLE_READ_NUMBER +2;i++){
-        reading +=(float) analogRead(A0);
+        reading =(float) analogRead(A0);
         if( reading > max) max=reading;
         if( reading < min) min = reading;
+        rsum += reading;
     }
-    reading = (reading  -max -min) / MULTIPLE_READ_NUMBER;
+    reading = (rsum  -max -min) / MULTIPLE_READ_NUMBER;
 
     float psi = (reading - _settings->fb) * _settings->fa;
     DBG_PRINTF("ADC:%d, PSIx10:%d\n",(int)reading,(int)(_currentPsi*10));
@@ -39,7 +41,7 @@ void PressureMonitorClass::_readPressure(){
 }
 
 PressureMonitorClass::PressureMonitorClass(){
-    _currentPsi = -100;
+    _currentPsi = 0;
     _settings=theSettings.pressureMonitorSettings();
 }
 

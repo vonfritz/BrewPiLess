@@ -167,6 +167,9 @@
 #define ButtonViaPCF8574 0
 #endif
 
+#ifndef AUTO_CAP
+#define  AUTO_CAP true
+#endif
 
 //////////////////////////////////////////////////////////////////////////
 //
@@ -481,6 +484,3 @@
 #define SupportMqttRemoteControl true
 #endif
 
-#ifndef AUTO_CAP
-#define  AUTO_CAP true
-#endif
