@@ -258,6 +258,7 @@
 #define EanbleParasiteTempControl flase
 #define SupportPressureTransducer false
 #define SupportMqttRemoteControl false
+#undef AUTO_CAP
 #define  AUTO_CAP false
 
 
@@ -401,7 +402,7 @@
 //#endif
 
 #define EMIWorkaround 1
-#define BPL_VERSION "3.6"
+#define BPL_VERSION "3.7"
 
 /**************************************************************************************/
 /*  Configuration: 																	  */
