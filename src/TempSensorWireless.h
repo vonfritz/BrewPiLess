@@ -10,7 +10,7 @@ class WirelessTempSensor: public BasicTempSensor
 public:
 	static  WirelessTempSensor* theWirelessTempSensor;
 	
-	WirelessTempSensor(bool connected=false,fixed4_4 cal=0,uint32_t expiryTime=300){
+	WirelessTempSensor(bool connected=false,fixed4_4 cal=0,uint32_t expiryTime=900){
         setConnected(connected);
         _expiryTime = expiryTime * 1000;
 	
